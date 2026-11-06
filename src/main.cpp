@@ -78,9 +78,9 @@ $on_mod(Loaded) {
     g_window = static_cast<int>(std::clamp<int64_t>(
         Mod::get()->getSettingValue<int64_t>("buffer-ticks"), 2, 16));
 
-    listenForSettingChanges("buffer-enabled", [](bool v) { g_enabled = v; });
-    listenForSettingChanges("buffer-releases", [](bool v) { g_bufferReleases = v; });
-    listenForSettingChanges("buffer-ticks", [](int64_t v) {
+    listenForSettingChanges<bool>("buffer-enabled", [](bool v) { g_enabled = v; });
+    listenForSettingChanges<bool>("buffer-releases", [](bool v) { g_bufferReleases = v; });
+    listenForSettingChanges<int64_t>("buffer-ticks", [](int64_t v) {
         g_window = static_cast<int>(std::clamp<int64_t>(v, 2, 16));
     });
 }
