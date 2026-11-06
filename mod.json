@@ -1,0 +1,47 @@
+{
+	"geode": "5.9.0",
+	"gd": {
+		"win": "2.2081",
+		"android": "2.2081",
+		"mac": "2.2081"
+	},
+	"id": "yourname.predictive-buffer",
+	"name": "Predictive Input Buffer",
+	"version": "v1.0.0",
+	"developer": "yourname",
+	"description": "Saves clicks that land a few ticks too early by holding them until the first tick where they would actually work. Also keeps press/release pairs in order.",
+	"settings": {
+		"buffer-enabled": {
+			"type": "bool",
+			"name": "Enabled",
+			"description": "Turn the input buffer on or off. You can also flip this with the toggle keybind.",
+			"default": true
+		},
+		"toggle-keybind": {
+			"type": "keybind",
+			"name": "Toggle Keybind",
+			"description": "Press to turn the buffer on/off at any time.",
+			"default": "Ctrl+Shift+B",
+			"category": "universal"
+		},
+		"buffer-ticks": {
+			"type": "int",
+			"name": "Buffer Window (ticks)",
+			"description": "How many ticks early a click can be and still get saved. Anything earlier than this window is NOT saved. At 240 TPS, 1 tick is about 4.17 ms.",
+			"default": 4,
+			"min": 2,
+			"max": 16,
+			"control": {
+				"input": true,
+				"slider": true,
+				"arrows": true
+			}
+		},
+		"buffer-releases": {
+			"type": "bool",
+			"name": "Buffer Releases",
+			"description": "Keeps releases in order with their clicks: a release that arrives while its click is still waiting is replayed with the same hold length, and a release that lands in the same physics step as its press is held back one update so the press registers.",
+			"default": true
+		}
+	}
+}

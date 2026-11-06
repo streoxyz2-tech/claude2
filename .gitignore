@@ -1,0 +1,7 @@
+build/
+.vscode/
+.idea/
+*.geode
+cmake-build-*/
+.cache/
+compile_commands.json
